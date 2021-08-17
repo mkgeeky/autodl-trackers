@@ -3,6 +3,94 @@
 Notable changes for the [autodl-trackers](https://github.com/autodl-community/autodl-trackers) project.
 
 
+## [v284](https://github.com/autodl-community/autodl-trackers/releases/tag/v284) (2020-05-06)
+
+[Commits](https://github.com/autodl-community/autodl-trackers/compare/v283...v284)
+
+### Changed
+
+* Revert "Support cookies on Orpheus".
+
+
+## [v283](https://github.com/autodl-community/autodl-trackers/releases/tag/v283) (2020-05-01)
+
+[Commits](https://github.com/autodl-community/autodl-trackers/compare/v282...v283)
+
+### Added
+
+* Add freeleech filter option to Asgaard.
+* DigitalCore.
+* ShareUniversity.
+* Add freeleech filter option to TorrentLeech.
+* Oppaitime.
+
+### Updated
+
+* Update torrentURL for PussyTorrents.
+* Update rexex for Asgaard.
+* Update NorBits regex for HTTPS URL.
+* Update MyXZ for new site/backend.
+* Update SceneFZ for new site/backend.
+* Update regex for Empornium.
+
+### Changed
+
+* Support cookies on Orpheus.
+* filelist.ro has changed to filelist.io.
+
+### Fixed
+
+* Add missing announcer name to Milkie.
+
+
+## [v282](https://github.com/autodl-community/autodl-trackers/releases/tag/v282) (2019-07-22)
+
+[Commits](https://github.com/autodl-community/autodl-trackers/compare/v281...v282)
+
+### Added
+
+* Milkie.
+* Asgaard.
+
+### Changed
+
+* Update FunFile announce regex.
+* Force SSL for Fuzer.
+* Update domain for NordicBits.
+* Update regex for TorrentSeeds.
+* Update IRC info for TorrentDay.
+* Update torrentUrl for BeyondHD.
+
+### Removed
+
+* UltimateGamerClub.
+
+
+## [v281](https://github.com/autodl-community/autodl-trackers/releases/tag/v281) (2019-02-06)
+
+[Commits](https://github.com/autodl-community/autodl-trackers/compare/v280...v281)
+
+### Fixed
+
+* PornBay.
+
+
+## [v280](https://github.com/autodl-community/autodl-trackers/releases/tag/v280) (2018-12-05)
+
+[Commits](https://github.com/autodl-community/autodl-trackers/compare/v279...v280)
+
+### Added
+
+* Orpheus tracker.
+* Tag support to Nebulance.
+* Anthelion tracker.
+* PornBay tracker.
+
+### Removed
+
+* Apollo tracker.
+
+
 ## [v279](https://github.com/autodl-community/autodl-trackers/releases/tag/v279) (2018-10-27)
 
 [Commits](https://github.com/autodl-community/autodl-trackers/compare/v278...v279)

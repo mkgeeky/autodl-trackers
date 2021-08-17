@@ -24,10 +24,10 @@
    - ***** END LICENSE BLOCK ***** -->
 
 <trackerinfo
-	type="apollo"
-	shortName="Apollo"
-	longName="Apollo"
-	siteName="apollo.rip"
+	type="orpheus"
+	shortName="Orpheus"
+	longName="Orpheus"
+	siteName="orpheus.network"
 	follow302links="true">
 
 	<settings>
@@ -39,8 +39,8 @@
 
 	<servers>
 		<server
-			network="APOLLO"
-			serverNames="irc.apollo.rip"
+			network="Orpheus"
+			serverNames="irc.orpheus.network"
 			channelNames="#announce"
 			announcerNames="hermes"
 			/>

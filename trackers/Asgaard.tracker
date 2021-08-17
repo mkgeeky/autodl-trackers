@@ -24,35 +24,34 @@
    - ***** END LICENSE BLOCK ***** -->
 
 <trackerinfo
-	type="td"
-	shortName="TD"
-	longName="TorrentDay"
-	siteName="TorrendDay.com">
+	type="AG"
+	shortName="AG"
+	longName="ASGAARD"
+	siteName="https://asgrd.org">
 
 	<settings>
-		<description text="Go to TorrentDay site and click on your username to find your passkey."/>
-		<passkey tooltiptext="Copy the passkey from your details page"/>
+		<description text="Paste (Ctrl+V) any asgrd.org torrent direct download (RSS) link into the text box below to automatically extract passkey."/>
+		<passkey pasteRegex="[&amp;]torrent_pass=([\da-fA-F]{32})" tooltiptext="Paste your Asgaard RSS link here."/>
 	</settings>
 
 	<servers>
 		<server
-			network="TorrenNTDaY"
-			serverNames="irc.torrentday.com"
-			channelNames="#td.announce, #td.announce2"
-			announcerNames="TD_Announce, SimonSaysBot"
+			network="Asgaard"
+			serverNames="irc.asgrd.org"
+			channelNames="#announce"
+			announcerNames="Freya"
 			/>
 	</servers>
 
 	<parseinfo>
 		<linepatterns>
 			<extract>
-				<!--[TV/x264] LBX Little Battlers Experience S01E06 720p HDTV x264-W4F - https://www.torrentday.com/details.php?id=1340045 - 461.734 MB-->
-				<!--[Movie/Bluray] Bad.Boys.II.2003.1080p.BluRay.DTS-HD.MA.5.1.x264-SiMPLE FREELEECH - https://www.torrentday.com/details.php?id=1335201 - 22.772 GB-->
-				<regex value="\[(.*?)\] (.*?) - (https?://.*/).*id=(\d+) - (.*)"/>
+				<!-- [Movies/1080p] Why.Him.2016.NORDiC.1080p.BRRip.x264-TWA FREELEECH || 7501 || 3.04GB -->
+				<!-- [Movies/1080p] Why.Him.2016.NORDiC.1080p.BRRip.x264-TWA || 7501 || 3.04GB -->
+				<regex value="\[(.*?)\] (.*?) \|\| (\d+) \|\| (.*)"/>
 				<vars>
 					<var name="category"/>
 					<var name="torrentName"/>
-					<var name="$baseUrl"/>
 					<var name="$torrentId"/>
 					<var name="$torrentSize"/>
 				</vars>
@@ -64,15 +63,13 @@
 			</var>
 
 			<setregex srcvar="torrentName" regex="FREELEECH" varName="freeleech" newValue="true"/>
-			<varreplace name="torrentName" srcvar="torrentName" regex="FREELEECH" replace=""/>
+			<varreplace name="torrentName" srcvar="torrentName" regex="FREELEECH\s*" replace=""/>
 
 			<var name="torrentUrl">
-				<var name="$baseUrl"/>
-				<string value="download.php/"/>
+				<string value="https://asgrd.org/"/>
+				<string value="download.php?torrent="/>
 				<var name="$torrentId"/>
-				<string value="/"/>
-				<varenc name="torrentName"/>
-				<string value=".torrent?torrent_pass="/>
+				<string value="&amp;torrent_pass="/>
 				<var name="passkey"/>
 			</var>
 		</linematched>

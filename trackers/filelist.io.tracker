@@ -16,7 +16,7 @@
    -
    - The Initial Developer of the Original Code is
    - David Nilsson.
-   - Portions created by the Initial Developer are Copyright (C) 2010, 2011
+   - Portions created by the Initial Developer are Copyright (C) 2010
    - the Initial Developer. All Rights Reserved.
    -
    - Contributor(s):
@@ -24,50 +24,64 @@
    - ***** END LICENSE BLOCK ***** -->
 
 <trackerinfo
-	type="ugc"
-	shortName="UGC"
-	longName="Ultimate Gamer Club"
-	siteName="ultimategamer.club">
+	type="flr"
+	shortName="FLR"
+	longName="filelist.io"
+	siteName="filelist.io">
 
 	<settings>
-		<gazelle_description/>
-		<gazelle_authkey/>
-		<gazelle_torrent_pass/>
+		<description text="Go to http://filelist.io/getrss.php to get the RSS feed link. Paste it (Ctrl+V) into the text box below to automatically extract passkey."/>
+		<passkey/>
 	</settings>
 
 	<servers>
 		<server
-			network="UGC"
-			serverNames="irc.ultimategamer.club"
-			channelNames="#UGC.Announce"
-			announcerNames="Gnarl"
+			network="FileList"
+			serverNames="irc.filelist.io"
+			channelNames="#announce"
+			announcerNames="Announce"
 			/>
 	</servers>
 
 	<parseinfo>
 		<linepatterns>
 			<extract>
-				<!--//NEW TORRENT// Half-Life.3-RAZOR1911 at https://ultimategamer.club/torrents.php?id=1911 on 2016-05-18T11:35:08+0000-->
-				<regex value="//NEW TORRENT// (.*) at (https?://.*)id=(\d+)"/>
+				<regex value="New Torrent: (.*?) (?:-- (.*) )?-- \[(.*)] \[(.*)] -- (https?://filelist.io/).*id=(.*) -- by (.*)"/>
 				<vars>
 					<var name="torrentName"/>
+					<var name="$releaseTags"/>
+					<var name="category"/>
+					<var name="$torrentSize"/>
 					<var name="$baseUrl"/>
 					<var name="$torrentId"/>
+					<var name="uploader"/>
 				</vars>
 			</extract>
 		</linepatterns>
 		<linematched>
+			<var name="freeleech">
+				<string value="false"/>
+			</var>
+
+			<varreplace name="tags" srcvar="$releaseTags" regex="[\[\]]" replace=""/>
+
+			<extracttags srcvar="tags" split="--">
+				<setvarif varName="origin" regex="^(?:Internal!)$"/>
+				<setvarif varName="freeleech" value="Freeleech!" newValue="true"/>
+			</extracttags>
+
 			<var name="torrentUrl">
 				<var name="$baseUrl"/>
-				<string value="action=download&amp;id="/>
+				<string value="download.php?id="/>
 				<var name="$torrentId"/>
-				<string value="&amp;authkey="/>
-				<var name="authkey"/>
-				<string value="&amp;torrent_pass="/>
-				<var name="torrent_pass"/>
+				<string value="&amp;file="/>
+				<varenc name="torrentName"/>
+				<string value=".torrent&amp;passkey="/>
+				<var name="passkey"/>
 			</var>
 		</linematched>
 		<ignore>
+			<regex value="^New!\s*(.*)-" expected="false"/>
 		</ignore>
 	</parseinfo>
 </trackerinfo>

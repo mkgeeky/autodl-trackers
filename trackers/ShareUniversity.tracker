@@ -16,7 +16,7 @@
    -
    - The Initial Developer of the Original Code is
    - David Nilsson.
-   - Portions created by the Initial Developer are Copyright (C) 2010
+   - Portions created by the Initial Developer are Copyright (C) 2010, 2011
    - the Initial Developer. All Rights Reserved.
    -
    - Contributor(s):
@@ -24,64 +24,51 @@
    - ***** END LICENSE BLOCK ***** -->
 
 <trackerinfo
-	type="flr"
-	shortName="FLR"
-	longName="filelist.ro"
-	siteName="filelist.ro">
+	type="su"
+	shortName="SU"
+	longName="ShareUniversity"
+	siteName="shareuniversity.org"
+	ignore404="true">
 
 	<settings>
-		<description text="Go to http://filelist.ro/getrss.php to get the RSS feed link. Paste it (Ctrl+V) into the text box below to automatically extract passkey."/>
-		<passkey/>
+		<description text="Paste (Ctrl+V) any ShareUniversity RSS link into the text box below to automatically extract passkey."/>
+		<passkey pasteRegex="([^.]{32})$" tooltiptext="Paste your ShareUniversity RSS link here."/>
 	</settings>
 
 	<servers>
 		<server
-			network="FileList"
-			serverNames="irc.filelist.ro"
+			network="ShareUniversity"
+			serverNames="irc.shareuniversity.org"
 			channelNames="#announce"
-			announcerNames="Announce"
+			announcerNames="SUAnnounce"
 			/>
 	</servers>
 
 	<parseinfo>
 		<linepatterns>
 			<extract>
-				<regex value="New Torrent: (.*?) (?:-- (.*) )?-- \[(.*)] \[(.*)] -- (https?://filelist.ro/).*id=(.*) -- by (.*)"/>
+				<!--NYT UPLOAD ~ Movies ~ The Dead Dont Die 2019 NORDiC 1080p BluRay x264 DTS5.1-TWA ~ 28.16 GiB ~ https://shareuniversity.org/torrents/the-dead-dont-die-2019-nordic-1080p-bluray-x264-dts51-twa.977-->
+				<regex value="NYT UPLOAD ~ ([^~]+) ~ ([^~]+) ~ ([^~]+) ~ (https:[^~]+)torrents(\/[^~]+)$"/>
 				<vars>
-					<var name="torrentName"/>
-					<var name="$releaseTags"/>
 					<var name="category"/>
+					<var name="torrentName"/>
 					<var name="$torrentSize"/>
 					<var name="$baseUrl"/>
 					<var name="$torrentId"/>
-					<var name="uploader"/>
 				</vars>
 			</extract>
 		</linepatterns>
 		<linematched>
-			<var name="freeleech">
-				<string value="false"/>
-			</var>
-
-			<varreplace name="tags" srcvar="$releaseTags" regex="[\[\]]" replace=""/>
-
-			<extracttags srcvar="tags" split="--">
-				<setvarif varName="origin" regex="^(?:Internal!)$"/>
-				<setvarif varName="freeleech" value="Freeleech!" newValue="true"/>
-			</extracttags>
-
+			<!--base.url/torrent/download/torrentid.passkey-->
 			<var name="torrentUrl">
 				<var name="$baseUrl"/>
-				<string value="download.php?id="/>
+				<string value="torrent/download"/>
 				<var name="$torrentId"/>
-				<string value="&amp;file="/>
-				<varenc name="torrentName"/>
-				<string value=".torrent&amp;passkey="/>
+				<string value="."/>
 				<var name="passkey"/>
 			</var>
 		</linematched>
 		<ignore>
-			<regex value="^New!\s*(.*)-" expected="false"/>
 		</ignore>
 	</parseinfo>
 </trackerinfo>

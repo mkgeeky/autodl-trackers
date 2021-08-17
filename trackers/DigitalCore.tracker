@@ -1,5 +1,5 @@
-<?xml version="1.0"?>
-<!-- ***** BEGIN LICENSE BLOCK *****
+<!--
+ ***** BEGIN LICENSE BLOCK *****
    - Version: MPL 1.1
    -
    - The contents of this file are subject to the Mozilla Public License Version
@@ -21,53 +21,57 @@
    -
    - Contributor(s):
    -
-   - ***** END LICENSE BLOCK ***** -->
+   - ***** END LICENSE BLOCK *****
+-->
 
 <trackerinfo
-	type="NB"
-	shortName="NB"
-	longName="NordicBits"
-	siteName="https://nordicb.org">
+	type="dc"
+	shortName="DC"
+	longName="DigitalCore"
+	siteName="digitalcore.club">
 
 	<settings>
-		<description text="Paste (Ctrl+V) any NordicBits torrent direct download (RSS) link into the text box below to automatically extract passkey."/>
-		<passkey pasteRegex="[&amp;]torrent_pass=([\da-fA-F]{32})" tooltiptext="Paste your NordicBits RSS link here."/>
+		<description text="Paste (Ctrl+V) the rss url to extract the passkey or check your profile for the passkey."/>
+		<passkey/>
 	</settings>
 
 	<servers>
 		<server
-			network="Nordicbits"
-			serverNames="irc.nordicb.org"
-			channelNames="#Nordicbits-announce"
-			announcerNames="Servus"
+			network="digitalcore.club"
+			serverNames="irc.digitalcore.club"
+			channelNames="#announce"
+			announcerNames="ENDOR"
 			/>
 	</servers>
 
 	<parseinfo>
 		<linepatterns>
 			<extract>
-				<!-- Nyt Upload: Elton.John-Diamonds-Limited.Deluxe.Edition.3CD.2017 .:. Kategori: MP3  .:. Size:  537.02 MB .:. https://nordicb.org/details.php?id=52536 -->
-				<regex value="Nyt Upload: (.*) .:. Kategori: (.*)  .:. Size:  (.*) .:. https?\:\/\/([^\/]+\/).*[&amp;\?]id=(\d+)"/>
+				<!--
+				NEW TORRENT in Movies/XviD :: The.Standoff.at.Sparrow.Creek.2019.BRRip.XviD.AC3-EVO :: https://digitalcore.club/api/v1/torrents/download/25249
+				-->
+				<regex value="^NEW.TORRENT.in.(.*?).::.(.*?).::.(.*)\/([0-9a-zA-Z]+)"/>
 				<vars>
-					<var name="torrentName"/>
 					<var name="category"/>
-					<var name="$torrentSize"/>
+					<var name="torrentName"/>
 					<var name="$baseUrl"/>
 					<var name="$torrentId"/>
 				</vars>
 			</extract>
 		</linepatterns>
+
 		<linematched>
 			<var name="torrentUrl">
-				<string value="http://"/>
 				<var name="$baseUrl"/>
-				<string value="download.php?torrent="/>
+				<string value="/"/>
 				<var name="$torrentId"/>
-				<string value="&amp;torrent_pass="/>
+				<string value="/"/>
 				<var name="passkey"/>
 			</var>
 		</linematched>
+
 		<ignore>
+			<regex value="^NEW.TORRENT" expected="false"/>
 		</ignore>
 	</parseinfo>
 </trackerinfo>
