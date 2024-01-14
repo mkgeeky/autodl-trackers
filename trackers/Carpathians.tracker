@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<!-- ***** BEGIN LICENSE BLOCK *****
+   - Version: MPL 1.1
+   -
+   - The contents of this file are subject to the Mozilla Public License Version
+   - 1.1 (the "License"); you may not use this file except in compliance with
+   - the License. You may obtain a copy of the License at
+   - http://www.mozilla.org/MPL/
+   -
+   - Software distributed under the License is distributed on an "AS IS" basis,
+   - WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+   - for the specific language governing rights and limitations under the
+   - License.
+   -
+   - The Original Code is IRC Auto Downloader.
+   -
+   - The Initial Developer of the Original Code is
+   - David Nilsson.
+   - Portions created by the Initial Developer are Copyright (C) 2010, 2011
+   - the Initial Developer. All Rights Reserved.
+   -
+   - Contributor(s):
+   -
+   - ***** END LICENSE BLOCK ***** -->
+
+<trackerinfo
+	type="ca"
+	shortName="carp"
+	longName="Carpathians"
+	siteName="mycarpathians.net">
+
+	<settings>
+		<description text="Az oldalon a Beállítások/Biztonság/Jelenlegi passkey sorban találod."/>
+		<passkey/>
+	</settings>
+
+	<servers>
+		<server
+			network="iRC2"
+			serverNames="irc2.hu"
+			channelNames="#carpathians"
+			announcerNames="Carpathians"
+			/>
+	</servers>
+
+	<parseinfo>
+		<linepatterns>
+			<extract>
+				<!--[NEW] Darby.and.Joan.S01E04.720p.WEBRip.x264.Eng.Hun-BNR .:. Sorozat/Hun .:.  1.42 GiB in 2 F .:. https://mycarpathians.net/details.php?id=475992-->
+				<!--[NEW] Yargi.S02E43.720p.TV2.WEB-DL.AAC2.0.H.264.HUN-WeBDoWN .:. Sorozat/Hun .:.  362.99 MiB in 2 F .:. https://mycarpathians.net/details.php?id=475989-->
+				<regex value="^\[NEW\]\s(.*?)\s\.:.\s([^\s]+)\s\.:.\s\s(.*)\s+in\s(.*)\sF\s\.:.\shttps:\/\/mycarpathians\.net\/details\.php\?id=(.*)"/>
+				<vars>
+					<var name="torrentName"/>
+					<var name="category"/>
+					<var name="$torrentSize"/>
+					<var name="$torrentFiles"/>
+					<var name="$torrentId"/>
+				</vars>
+			</extract>
+		</linepatterns>
+		<linematched>
+			<var name="torrentUrl">
+				<string value="https://mycarpathians.net/download.php/"/>
+				<var name="passkey"/>
+				<string value="/"/>
+				<var name="$torrentId"/>
+				<string value="/%5BCarp%5D"/>
+				<var name="$torrentName"/>
+				<string value=".torrent"/>
+			</var>
+		</linematched>
+		<ignore>
+		</ignore>
+	</parseinfo>
+</trackerinfo>
