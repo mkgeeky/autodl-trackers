@@ -45,7 +45,7 @@
 	</servers>
 
 	<parseinfo>
-		<linepatterns>
+		<multilinepatterns>
 			<!-- New Upload -->
 			<extract>
 				<!--Neuer Upload: Penguindrum.S01.German.DL.DTS.1080p.BluRay.10bit.x265-CNY [Kategorie: Anime Serien][Typ: Encode][Auflösung: 1080p][Größe: 34.36 GiB][FL: 100%][Vorgestellt] | http://animeworld.cx/torrents/38638 | Uploader: Anonym-->
@@ -63,7 +63,21 @@
 					<var name="uploader"/>
 				</vars>
 			</extract>
-		</linepatterns>
+			<!-- Torrent featured -->
+			<extract>
+				<!--Torrent vorgestellt: Insomniacs.after.School.S01.German.DL.DTS.1080p.BluRay.10bit.x265-DK [Kategorie: Anime Serien][Typ: Encode][Auflösung: 1080p][Größe: 12.19 GiB] | http://animeworld.cx/torrents/39239-->
+				<regex value="Torrent vorgestellt: (.+) \[Kategorie: (.+)\]\[Typ: (.+)\]\[Auflösung: (.+)\]\[Größe: (.+)\] \| (https?\:\/\/.*\/)torrents\/(\d+)"/>
+				<vars>
+					<var name="torrentName"/>
+					<var name="category"/>
+					<var name="$releaseTags"/>
+					<var name="resolution"/>
+					<var name="$torrentSize"/>
+                    <var name="$baseUrl"/>
+					<var name="$torrentId"/>
+				</vars>
+			</extract>
+		</multilinepatterns>
 		<linematched>
 			<var name="freeleech">
 				<string value="false"/>
