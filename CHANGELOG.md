@@ -1,4 +1,20 @@
-## [v290.6.8](https://github.com/mkgeeky/autodl-trackers/releases/tag/v290.6.8) (2024-0X-XX)
+## [v290.6.9](https://github.com/mkgeeky/autodl-trackers/releases/tag/v290.6.9) (2024-05-23)
+
+[Commits](https://github.com/mkgeeky/autodl-trackers/compare/v290.6.8...v290.6.9)
+
+### Added
+
+* [FinElite](https://github.com/mkgeeky/autodl-trackers/pull/19/commits/e91a13f4b3329acd6148a4520c2567d6f7fd11e2)
+
+### Edited
+
+* [AW: Multilinepatterns](https://github.com/mkgeeky/autodl-trackers/pull/19/commits/bf5fea26a42afada8e4886314b845bd5a6a75819)
+* [Change announcerNames](https://github.com/mkgeeky/autodl-trackers/pull/19/commits/b9e3e98ce7779389963e21aad41756ee46b4a44c)
+
+### Removed
+* ["Removed "thebigmunch" folder](https://github.com/mkgeeky/autodl-trackers/pull/19/commits/18f28c691155f28b0b93eae4b59d5c878153c5cb)
+
+## [v290.6.8](https://github.com/mkgeeky/autodl-trackers/releases/tag/v290.6.8) (2024-05-13)
 
 [Commits](https://github.com/mkgeeky/autodl-trackers/compare/v290.6.7...v290.6.8)
 
