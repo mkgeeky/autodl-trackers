@@ -1,16 +1,8 @@
-# NOTE
-
-**@thebigmunch** stopped support for this repo. Therefor I have forked it, and will soon update the tracker list.
-
-**All credits for the system goes to @thebigmunch :heart:**
-
-thebigmunch's README.md, CHANGELOG.md, CONTRIBUTING.md & SUPPORT.md is moved to folder **thebigmunch/**
-
 ## Update
 
-### **The update/version buttons in rutorrent - do not work for mkgeeky's version!**
+I have forked and edited [autodl-irssi](https://github.com/mkgeeky/autodl-irssi), so the Update button now will work from ruTorrent.
 
-If you want to update the tracker list, you can use our [autodl-tracker-updater](https://github.com/mkgeeky/autodl-trackers-updater)
+You can still use [autodl-tracker-updater](https://github.com/mkgeeky/autodl-trackers-updater) if you don't want to change (to update) in the original autodl-irssi code.
 
 ## Need a tracker / need a change to tracker?
 
@@ -27,3 +19,7 @@ Create a issue with following information:
 Create a issue with following information:
 * What is changed? **From what to what**
 * At least 5 lines from the announce channel
+
+#### Dead tracker
+
+Please report dead trackers [here](https://github.com/mkgeeky/autodl-trackers/issues/21)
