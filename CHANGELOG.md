@@ -1,3 +1,17 @@
+## [v290.7.0](https://github.com/mkgeeky/autodl-trackers/releases/tag/v290.7.0) (2024-06-18)
+
+### Added
+* [.gitignore](https://github.com/mkgeeky/autodl-trackers/pull/22/commits/7e0e8d40b4ad30be4a7a2a832d39de08cdce35dc)
+
+### Edited
+
+* [Typo in HDOnly](https://github.com/mkgeeky/autodl-trackers/pull/22/commits/7b92440565ed0ec1d2b375c2fd111a09ad3f56fb)
+
+### Removed
+* [[Dead Tracker] DBY](https://github.com/mkgeeky/autodl-trackers/pull/22/commits/8a8f0f87527958187dec476cee050aaf78d82731)
+
+[Commits](https://github.com/mkgeeky/autodl-trackers/compare/v290.6.9...v290.7.0)
+
 ## [v290.6.9](https://github.com/mkgeeky/autodl-trackers/releases/tag/v290.6.9) (2024-05-23)
 
 [Commits](https://github.com/mkgeeky/autodl-trackers/compare/v290.6.8...v290.6.9)
