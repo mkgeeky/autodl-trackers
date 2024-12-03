@@ -47,11 +47,11 @@
 	<parseinfo>
 		<linepatterns>
 			<extract>
-            <!--Movie Title [2002] [Film] - WEB / AVC / 1080p / VO / stFR / VFI - Movie.Title.2002.1080p.WEB.H264 - https://hd-only.org/torrents.php?torrentid=00000 / https://hd-only.org/torrents.php?action=download&id=00000 - Aventure, Fantastique-->
-            <!--Movie Title [2002] [Film] - WEB / AVC / 1080p / VO / stFR / VFI - FL - Movie.Title.2002.1080p.WEB.H264 - https://hd-only.org/torrents.php?torrentid=00000 / https://hd-only.org/torrents.php?action=download&id=00000 - Aventure, Fantastique-->
-            <!--Movie Title [2002] [Film] - WEB / AVC / 1080p / VO / stFR / VFI / Scene - GROUP - Movie.Title.2002.1080p.WEB.H264-GROUP - https://hd-only.org/torrents.php?torrentid=00000 / https://hd-only.org/torrents.php?action=download&id=00000 - Aventure, Fantastique-->
+            <!--Movie Title [2002] [Film] - WEB / AVC / 1080p / VO / stFR / VFI - Movie.Title.2002.1080p.WEB.H264 - 13.43 GB - https://hd-only.org/torrents.php?torrentid=00000 / https://hd-only.org/torrents.php?action=download&id=00000 - Aventure, Fantastique-->
+            <!--Movie Title [2002] [Film] - WEB / AVC / 1080p / VO / stFR / VFI - FL - Movie.Title.2002.1080p.WEB.H264 - 9.43 GB - https://hd-only.org/torrents.php?torrentid=00000 / https://hd-only.org/torrents.php?action=download&id=00000 - Aventure, Fantastique-->
+            <!--Movie Title [2002] [Film] - WEB / AVC / 1080p / VO / stFR / VFI / Scene - GROUP - Movie.Title.2002.1080p.WEB.H264-GROUP - 8.93 GB - https://hd-only.org/torrents.php?torrentid=00000 / https://hd-only.org/torrents.php?action=download&id=00000 - Aventure, Fantastique-->
             <!--Movie Title [2002] [Film] - WEB / AVC / 1080p / VO / stFR / VFI / Scene - FL - GROUP - Movie.Title.2002.1080p.WEB.H264-GROUP - https://hd-only.org/torrents.php?torrentid=00000 / https://hd-only.org/torrents.php?action=download&id=00000 - Aventure, Fantastique-->
-				<regex value="(.*?) \[(\d{4})\] \[(.*?)\] - (.*?)(?: - (FL))?(?: - (.*?))? - (.*?) - (https:\/\/hd-only\.org\/).*torrentid=(\d+).* - (.*)"/>
+				<regex value="(.*?) \[(\d{4})\] \[(.*?)\] - (.*?)(?: - (FL))?(?: - (.*?))? - (.*?) - (.*?) - (https:\/\/hd-only\.org\/).*torrentid=(\d+).* - (.*)"/>
 				<vars>
 					<var name="title"/>
 					<var name="year"/>
@@ -60,6 +60,7 @@
                     <var name="$freeleech"/>
                     <var name="releaseGroup"/>
                     <var name="torrentName"/>
+					<var name="$torrentSize"/>
 					<var name="$baseUrl"/>
 					<var name="$torrentId"/>
 					<var name="tags"/>
