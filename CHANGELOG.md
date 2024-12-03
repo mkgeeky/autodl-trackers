@@ -1,3 +1,17 @@
+## [v290.7.1](https://github.com/mkgeeky/autodl-trackers/releases/tag/v290.7.0) (2024-12-XX)
+
+### Added
+* DBy
+* SeedPool
+* SATClubbing
+* LustHive
+
+### Edited
+* Add size to HDOnly
+* BHU: Update IRC Server
+
+[Commits](https://github.com/mkgeeky/autodl-trackers/compare/v290.7.0...v290.7.1)
+
 ## [v290.7.0](https://github.com/mkgeeky/autodl-trackers/releases/tag/v290.7.0) (2024-06-18)
 
 ### Added
