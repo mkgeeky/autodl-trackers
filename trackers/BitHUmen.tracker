@@ -36,8 +36,8 @@
 
 	<servers>
 		<server
-			network="IRCnet"
-			serverNames="ircnet.eversible.com"
+			network="IRCNet"
+			serverNames="irc.atw-inter.net"
 			channelNames="#bithumen"
 			announcerNames="bitHUmen"
 			/>
