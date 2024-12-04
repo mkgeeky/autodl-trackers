@@ -65,7 +65,7 @@
 				<var name="$baseUrl"/>
 				<string value="torrents.php?action=download&amp;id="/>
                 <var name="$torrentId"/>
-                <strong name="&amp;authkey="/>
+                <string name="&amp;authkey="/>
 				<var name="authkey"/>
 				<string value="&amp;torrent_pass="/>
 				<var name="torrent_pass"/>
