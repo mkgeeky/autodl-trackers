@@ -1,4 +1,11 @@
-## [v290.7.1](https://github.com/mkgeeky/autodl-trackers/releases/tag/v290.7.0) (2024-12-XX)
+## [v290.7.2](https://github.com/mkgeeky/autodl-trackers/releases/tag/v290.7.2) (2024-12-03)
+
+### Added
+* NordicQuality
+
+[Commits](https://github.com/mkgeeky/autodl-trackers/compare/v290.7.1...v290.7.2)
+
+## [v290.7.1](https://github.com/mkgeeky/autodl-trackers/releases/tag/v290.7.1) (2024-12-03)
 
 ### Added
 * DBy

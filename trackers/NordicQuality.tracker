@@ -24,51 +24,50 @@
    - ***** END LICENSE BLOCK ***** -->
 
 <trackerinfo
-	type="lsh"
-	shortName="Ls"
-	longName="LustHive"
-	siteName="https://lusthive.org/"
+	type="nq"
+	shortName="NordicQ"
+	longName="NordicQuality"
+	siteName="nordicq.org"
 	ignore404="true">
 
 	<settings>
-		<gazelle_description/>
-		<gazelle_authkey/>
-		<gazelle_torrent_pass/>
+		<description text="Paste (Ctrl+V) any NordicQ RSS link into the text box below to automatically extract RSS Key (RID)"/>
+		<passkey pasteRegex="([^.]{32})$" tooltiptext="Paste your NordicQ RSS link or RSS Key (RID) here."/>
 	</settings>
 
 	<servers>
 		<server
-			network="LustHive"
-			serverNames="irc.lusthive.org"
-			channelNames="#announce"
-			announcerNames="LustHive"
+			network="P2P-NET"
+			serverNames="irc.p2p-network.net"
+			channelNames="#nordicquality"
+			announcerNames="NordicQuality"
 			/>
+		<!--Mirrors updated 17/02/2022-->
 	</servers>
 
 	<parseinfo>
-		<linepatterns>
-			<extract>
-				<!--Some Scene - Size: 13.37 GiB - Uploader: anon - Tags: this, that, this.and.that - https://lusthive.org/torrents.php?torrentid=000000-->
-				<regex value="\s([^~]+?)(?:\s~\s)?(Freeleech)?\s~\s([^~]+?)\s~\s([^~]+?)\s~\s(https?\:\/\/[^\/]+\/)torrents.php\?torrentid=(\d+)"/>
-				<vars>
-					<var name="torrentName"/>
-                    <var name="$torrentSize"/>
-                    <var name="uploader"/>
-                    <var name="tags"/>
-					<var name="$baseUrl"/>
-					<var name="$torrentId"/>
-				</vars>
-			</extract>
-		</linepatterns>
+    <linepatterns>
+      <extract>
+        <regex value="^\[ (.*) \]\[ (.*) \]\[ (.*) \]\[ (.*) \]\[ (.*) \]\[ (.*\/)(?:.*\/)(.*)\ ]"/>
+        <vars>
+          <var name="announceType"/>
+          <var name="category"/>
+          <var name="releaseTags"/>
+          <var name="torrentName"/>
+          <var name="torrentSize"/>
+          <var name="baseUrl"/>
+          <var name="torrentId"/>
+        </vars>
+      </extract>
+    </linepatterns>
 		<linematched>
+			<!--base.url/torrent/download/torrentid.passkey-->
 			<var name="torrentUrl">
-				<var name="$baseUrl"/>
-				<string value="torrents.php?action=download&amp;id="/>
-                <var name="$torrentId"/>
-                <string name="&amp;authkey="/>
-				<var name="authkey"/>
-				<string value="&amp;torrent_pass="/>
-				<var name="torrent_pass"/>
+				<var name="baseUrl"/>
+				<string value="torrent/download/"/>
+				<var name="torrentId"/>
+				<string value="."/>
+				<var name="passkey"/>
 			</var>
 		</linematched>
 		<ignore>
